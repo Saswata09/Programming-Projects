@@ -1,4 +1,6 @@
 import java.io.*;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 class Gaussian_Elimination
 {
     InputStreamReader in = new InputStreamReader (System.in);
@@ -27,6 +29,7 @@ class Gaussian_Elimination
         int l=eqn[0].length();
         int a=0;
         int flg=0;
+        DecimalFormat df = new DecimalFormat("##.##");
         for(int j=0;j<l;j++)
         {
             char ch = eqn[0].charAt(j);
@@ -69,9 +72,7 @@ class Gaussian_Elimination
                 }
             }
         }
-        System.out.println(eqn[0]);
-        System.out.println(eqn[1]);
-        System.out.println(eqn[2]);
+        System.out.println();
         int p=0;
         int flag=0;
         int vr[][];
@@ -104,7 +105,6 @@ class Gaussian_Elimination
                 }
                 if(str.charAt(0)=='+')
                 str=str.substring(1,str.length());
-                System.out.println(str);
                 int n= Integer.valueOf(str);
                 str="";
                 vr[p][e]=n;
@@ -131,7 +131,6 @@ class Gaussian_Elimination
                 {
                     String qw=eqn[as].substring(cv+1,lne);
                     int ye=Integer.valueOf(qw);
-                    System.out.println(ye);
                     sm[v]=ye; 
                 }
         }
@@ -172,6 +171,8 @@ if(aug[0][0]==0)
 int flag1=0;
 int flag2=1;
 System.out.println();
+System.out.println("THE AUGMENTED FORM OF THE MARTRIX IS");
+System.out.println();
 for(int b=0;b<num;b++)
 {
     for(int h=0;h<num+1;h++)
@@ -197,6 +198,8 @@ for(int b=0;b<num;b++)
 }
 }
 }
+System.out.println();
+System.out.println("THE ECHELON FORM OF THE MATRIX IS");
 System.out.println();
 for(int ty=0;ty<num;ty++)
 {
@@ -252,6 +255,8 @@ for(int uu=num-1;uu>=1;uu--)
     }
 }
 System.out.println();
+System.out.println("THE ROW CANNONICAL FORM OF THE MATRIX IS");
+System.out.println();
 for(int tyq=0;tyq<num;tyq++)
 {
     for(int ytq=0;ytq<num+1;ytq++)
@@ -268,7 +273,7 @@ for(int yy=0;yy<num;yy++)
     {
         if(aug[yy][kk]==1.0)
         {
-            System.out.println(var[yy]+" = "+aug[yy][num]);
+            System.out.println(var[yy]+" = "+df.format(aug[yy][num]));
         }
     }
 }
